@@ -49,6 +49,15 @@ app.get("/janken", (req, res) => {
   else if( num==2 ) cpu = 'チョキ';
   else cpu = 'パー';
   // ここに勝敗の判定を入れる
+  if(hand===cpu){
+    judgement='あいこ';
+  }else if(
+    (hand==='グー'&&cpu==='チョキ')||
+    (hand==='チョキ'&&cpu==='パー')||
+    (hand==='パー'&&cpu==='グー')
+  ){
+    judgement='勝ち';
+  }
   // 以下の数行は人間の勝ちの場合の処理なので，
   // 判定に沿ってあいこと負けの処理を追加する
   judgement = '勝ち';
